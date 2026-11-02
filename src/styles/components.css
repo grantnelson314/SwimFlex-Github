@@ -1,0 +1,1933 @@
+/* Component styles. Colors/radii/spacing come from tokens.css only. */
+
+/* ---------- Screen layout ---------- */
+
+.screen {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen-header-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  margin-bottom: var(--space-5);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 40px;
+  margin-left: -6px;
+  padding: 0 var(--space-2) 0 var(--space-1);
+  border-radius: var(--radius-pill);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  background: var(--color-primary-tint);
+}
+
+.stack--actions {
+  margin-bottom: var(--space-6);
+}
+
+.action-bar {
+  padding: var(--space-3) var(--space-5) var(--space-4);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.empty-state {
+  padding: var(--space-5);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-card);
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap-target);
+  padding: 0 var(--space-5);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-button);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.btn--block {
+  display: flex;
+  width: 100%;
+}
+
+/* Primary: filled blue and visually dominant (Adapt Workout). */
+.btn--primary {
+  min-height: 56px;
+  font-size: 17px;
+  color: #fff;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* Secondary: tinted + outlined, clearly quieter than primary. */
+.btn--secondary {
+  color: var(--color-primary);
+  background: var(--color-primary-tint);
+  border-color: var(--color-border);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-primary);
+}
+
+.btn--ghost {
+  color: var(--color-primary);
+  background: transparent;
+}
+
+.btn:disabled {
+  color: var(--color-text-subtle);
+  background: var(--color-neutral-soft);
+  border-color: var(--color-border);
+  cursor: not-allowed;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  display: block;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-subtle);
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.card--selected {
+  border: 2px solid var(--color-primary);
+  padding: calc(var(--space-4) - 1px);
+  background: var(--color-primary-tint);
+}
+
+/* ---------- Chips ---------- */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.chip--primary {
+  color: var(--color-primary-dark);
+  background: var(--color-primary-tint);
+}
+
+.chip--neutral {
+  color: var(--color-text-secondary);
+  background: var(--color-neutral-soft);
+}
+
+.chip--warning {
+  color: var(--color-warning-text);
+  background: var(--color-warning-tint);
+}
+
+/* ---------- My Workouts ---------- */
+
+.workout-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.workout-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: inherit;
+  text-decoration: none;
+}
+
+.workout-card:hover {
+  border-color: var(--color-primary);
+}
+
+.workout-card__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.workout-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.workout-card__name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.workout-card__meta {
+  color: var(--color-text-secondary);
+}
+
+.workout-card__meta strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.workout-card__priority {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.workout-card__chevron {
+  flex: none;
+  color: var(--color-text-subtle);
+}
+
+/* ---------- Review Workout ---------- */
+
+.summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.summary-card__metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.summary-card__value {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.summary-card__label {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.summary-card__focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.review-sets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.section-help {
+  color: var(--color-text-secondary);
+  font-size: 15px;
+}
+
+.callout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-input);
+  font-size: 14px;
+}
+
+.callout svg {
+  flex: none;
+  margin-top: 1px;
+}
+
+.callout--warning {
+  color: #8A4B05;
+  background: var(--color-warning-tint);
+  border: 1px solid var(--color-warning);
+}
+
+.set-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.set-card__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.set-card__role {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+}
+
+.set-card__yards {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.set-card__notation {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+/* Priority Set control: whole row is a button. */
+.priority-control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: var(--tap-target);
+  margin-top: var(--space-1);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.priority-control:hover {
+  border-color: var(--color-primary);
+}
+
+.priority-control__mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  color: #fff;
+  background: var(--color-surface);
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.priority-control__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.priority-control__label {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.priority-control__hint {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.priority-control--selected {
+  background: var(--color-primary-tint);
+  border-color: var(--color-primary);
+}
+
+.priority-control--selected .priority-control__mark {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.priority-control--selected .priority-control__label {
+  color: var(--color-primary-dark);
+}
+
+/* =====================================================================
+   Phase 2: Adaptation
+   ===================================================================== */
+
+.chip--success {
+  color: var(--color-success-text);
+  background: var(--color-success-tint);
+}
+
+.stack--sections {
+  gap: var(--space-5);
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.action-row .btn {
+  padding: 0 var(--space-3);
+}
+
+.disclaimer {
+  margin-top: var(--space-5);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+/* ---------- Adapt Workout ---------- */
+
+.context-line {
+  color: var(--color-text-secondary);
+  margin-top: calc(-1 * var(--space-3));
+}
+
+.context-line strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.context-line--sub {
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-5);
+  font-size: 14px;
+}
+
+.context-line a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.adapt-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.constraint-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.constraint-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: var(--tap-target);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.constraint-option:hover {
+  border-color: var(--color-primary);
+}
+
+.constraint-option__mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  color: #fff;
+}
+
+.constraint-option__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.constraint-option__label {
+  font-weight: 600;
+}
+
+.constraint-option__hint {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.constraint-option--selected {
+  background: var(--color-primary-tint);
+  border: 2px solid var(--color-primary);
+  padding: calc(var(--space-3) - 1px) calc(var(--space-4) - 1px);
+}
+
+.constraint-option--selected .constraint-option__mark {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.constraint-option--selected .constraint-option__label {
+  color: var(--color-primary-dark);
+}
+
+.inputs-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+/* ---------- Form fields ---------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.field--group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.field__label {
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.field__hint {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.field__error {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-danger);
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.stepper__btn {
+  flex: none;
+  width: var(--tap-target);
+  height: var(--tap-target);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-primary);
+  background: var(--color-primary-tint);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+}
+
+.stepper__btn:hover {
+  border-color: var(--color-primary);
+}
+
+.stepper__input {
+  width: 88px;
+  height: var(--tap-target);
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+}
+
+.stepper__input[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+.stepper__unit {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.select {
+  width: 100%;
+  min-height: var(--tap-target);
+  padding: 0 var(--space-3);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+}
+
+.readout {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-neutral-soft);
+  border-radius: var(--radius-input);
+}
+
+.readout__label {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.readout__value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.segmented {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.segmented__item {
+  position: relative;
+}
+
+.segmented__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.segmented__label {
+  display: grid;
+  place-items: center;
+  min-height: var(--tap-target);
+  font-weight: 600;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+  pointer-events: none;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.segmented__input:hover + .segmented__label {
+  border-color: var(--color-primary);
+}
+
+.segmented__input:checked + .segmented__label {
+  color: #fff;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.segmented__input:focus-visible + .segmented__label {
+  box-shadow: var(--focus-ring);
+}
+
+.check-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+}
+
+.check-grid__item {
+  position: relative;
+}
+
+.check-grid__input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.check-grid__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-target);
+  padding: 0 var(--space-3);
+  font-weight: 500;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+  pointer-events: none;
+}
+
+.check-grid__box {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.check-grid__input:checked + .check-grid__label {
+  background: var(--color-primary-tint);
+  border-color: var(--color-primary);
+}
+
+.check-grid__input:checked + .check-grid__label .check-grid__box {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.check-grid__input:focus-visible + .check-grid__label {
+  box-shadow: var(--focus-ring);
+}
+
+/* ---------- Callouts ---------- */
+
+.callout--info {
+  color: var(--color-text);
+  background: var(--color-primary-tint);
+  border: 1px solid var(--color-primary);
+}
+
+.callout--block {
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: var(--space-4);
+}
+
+.callout--list {
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-4);
+  padding-left: var(--space-5);
+  list-style: disc;
+  display: block;
+}
+
+.callout__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.adapt-form + .callout,
+.screen .callout + .callout {
+  margin-top: var(--space-4);
+}
+
+.screen .phone__scroll > .callout {
+  margin-bottom: var(--space-4);
+}
+
+/* ---------- Proposed Changes ---------- */
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.comparison__col--adjusted {
+  text-align: right;
+}
+
+.comparison__heading {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+}
+
+.comparison__value {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.comparison__col--adjusted .comparison__value {
+  color: var(--color-primary-dark);
+}
+
+.comparison__value--secondary {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.comparison__col--adjusted .comparison__value--secondary {
+  color: var(--color-primary-dark);
+}
+
+.comparison__arrow {
+  font-size: 22px;
+  color: var(--color-text-subtle);
+}
+
+.comparison__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.comparison__chips .chip {
+  font-size: 14px;
+  padding: 6px 14px;
+}
+
+.comparison__priority {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.comparison__priority svg {
+  flex: none;
+  margin-top: 2px;
+}
+
+.comparison__priority--warn {
+  color: var(--color-warning-text);
+}
+
+.why-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.change-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.change-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.change-card__was {
+  margin-top: var(--space-1);
+  color: var(--color-text-secondary);
+  font-size: 15px;
+}
+
+.change-card__yards {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.change-card__why {
+  margin-top: var(--space-1);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.decision {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.decision__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--tap-target);
+  padding: 0 var(--space-4);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.decision__summary::-webkit-details-marker {
+  display: none;
+}
+
+.decision__summary::after {
+  content: '+';
+  font-size: 22px;
+  color: var(--color-primary);
+}
+
+.decision[open] .decision__summary::after {
+  content: '−';
+}
+
+.decision__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 0 var(--space-4) var(--space-4) calc(var(--space-4) + var(--space-5));
+  list-style: disc;
+  color: var(--color-text-secondary);
+  font-size: 15px;
+}
+
+/* ---------- Safety Boundary ---------- */
+
+.safety {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 2px solid var(--color-danger);
+  border-radius: var(--radius-card);
+}
+
+.safety__title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.safety__body {
+  font-size: 17px;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Adjusted workout ready ---------- */
+
+.ready-list {
+  margin: var(--space-4) 0;
+}
+
+.ready-list__priority {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+
+/* ---------- Manual Adjustment ---------- */
+
+.stepper__value {
+  min-width: 88px;
+  height: var(--tap-target);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+}
+
+.manual-totals {
+  margin-bottom: var(--space-5);
+}
+
+.manual-totals__delta,
+.manual-totals__priority {
+  margin-top: var(--space-3);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.manual-totals__priority {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+
+.manual-set {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.manual-set__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.manual-set__name {
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.manual-set__yards {
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.manual-set__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.action-bar__note {
+  margin: 0;
+  text-align: center;
+}
+
+/* ---------- Resume banner (My Workouts) ---------- */
+
+.resume-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  padding: var(--space-4);
+  background: var(--color-primary-tint);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-card);
+}
+
+.resume-banner__title {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.resume-banner__body {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Pool Mode ---------- */
+
+.screen--pool,
+.screen--pool .action-bar {
+  background: var(--color-pool-tint);
+}
+
+.pool {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.pool__workout {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.pool__current {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.pool__label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-dark);
+}
+
+.pool__rep {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.pool__title {
+  font-size: 48px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.pool__interval {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.pool__countdown {
+  margin-top: var(--space-3);
+  font-size: 16px;
+  color: var(--color-text-secondary);
+}
+
+.pool__countdown-time {
+  font-size: 28px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+}
+
+.pool__countdown[data-paused] .pool__countdown-time {
+  color: var(--color-text-subtle);
+}
+
+.pool__countdown--manual {
+  font-size: 15px;
+}
+
+.pool__progress {
+  width: 100%;
+  height: 10px;
+  margin-top: var(--space-4);
+  overflow: hidden;
+  background: var(--color-neutral-soft);
+  border-radius: var(--radius-pill);
+}
+
+.pool__progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: var(--radius-pill);
+  transition: width 200ms linear;
+}
+
+/* Send-off pulse: replays whenever the rep/set advances (element is re-keyed). */
+.pool__pulse {
+  animation: pool-pulse 700ms ease-out;
+}
+
+@keyframes pool-pulse {
+  0% {
+    transform: scale(1.25);
+    color: var(--color-primary);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pool__pulse {
+    animation: none;
+  }
+  .pool__progress-fill {
+    transition: none;
+  }
+}
+
+.pool__meta {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: var(--space-3);
+}
+
+.pool__meta > div {
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.pool__meta dt {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+.pool__meta dd {
+  margin: 2px 0 0;
+  font-size: 16px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.pool__paused {
+  padding: var(--space-3);
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-warning-text);
+  background: var(--color-warning-tint);
+  border-radius: var(--radius-input);
+}
+
+/* ---------- Quick Adjust ---------- */
+
+.qa-proposal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.qa-proposal__before {
+  margin-bottom: var(--space-3);
+  font-size: 18px;
+  color: var(--color-text-secondary);
+}
+
+.qa-proposal__after {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+}
+
+/* ---------- Workout Complete ---------- */
+
+.complete-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.complete-stats > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.complete-stats dt {
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.complete-stats dd {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.complete-card__note {
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+
+/* ---------- Smartwatch companion (simulated) ---------- */
+
+.watch-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 36px;
+  padding: 0 var(--space-4);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+.watch-toggle:hover,
+.watch-toggle[aria-pressed='true'] {
+  border-color: var(--color-primary);
+  background: var(--color-primary-tint);
+}
+
+/* A tiny generic wearable glyph (not any brand's icon). */
+.watch-toggle__icon {
+  width: 12px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+}
+
+/* Narrow screens: the panel is a bottom drawer over the phone. */
+.watch-panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  max-height: 92dvh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -8px 32px rgba(17, 33, 54, 0.18);
+}
+
+.watch-panel__head {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.watch-panel__title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.watch-panel__close {
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  font-weight: 600;
+  color: var(--color-primary);
+  background: none;
+  border: 0;
+  border-radius: var(--radius-pill);
+}
+
+.watch-panel__close:hover {
+  background: var(--color-primary-tint);
+}
+
+.watch-panel__note {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+/* Wide screens: side by side with the phone. */
+@media (min-width: 860px) {
+  .watch-panel {
+    position: static;
+    flex: none;
+    width: 320px;
+    max-height: none;
+    align-self: center;
+    overflow: visible;
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: 32px;
+    box-shadow: var(--shadow-phone);
+  }
+}
+
+/* The device: a generic rounded wearable with a bezel and strap stubs. */
+.watch-device {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.watch-device__strap {
+  width: 110px;
+  height: 26px;
+  background: var(--color-border);
+}
+
+.watch-device__strap--top {
+  border-radius: 14px 14px 0 0;
+}
+
+.watch-device__strap--bottom {
+  border-radius: 0 0 14px 14px;
+}
+
+.watch-device__frame {
+  padding: 10px;
+  background: var(--color-text);
+  border-radius: 58px;
+}
+
+.watch-device__screen {
+  position: relative;
+  width: 232px;
+  height: 292px;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 14px 16px;
+  overflow: hidden;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border-radius: 48px;
+}
+
+.watch-status {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.watch-status__conn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.watch-status__dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-success);
+  border-radius: 50%;
+}
+
+.watch-status__dot--off {
+  background: var(--color-text-subtle);
+}
+
+.watch-screen {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.watch-screen--center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.watch-pool {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-align: center;
+}
+
+.watch-kicker {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--color-primary-dark);
+}
+
+.watch-pool__rep {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.watch-pool__title {
+  font-size: 34px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.watch-pool__interval {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.watch-pool__countdown {
+  font-size: 46px;
+  line-height: 1.05;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.watch-pool__manual,
+.watch-notice__body,
+.watch-safety__body {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.watch-pulse {
+  animation: pool-pulse 700ms ease-out;
+}
+
+.watch-actions {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.watch-actions__row,
+.watch-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.watch-btn {
+  min-height: 40px;
+  padding: 0 var(--space-2);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  border-radius: 20px;
+}
+
+.watch-btn:hover {
+  background: var(--color-primary-tint);
+}
+
+.watch-btn--primary {
+  color: #fff;
+  background: var(--color-primary);
+}
+
+.watch-btn--primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.watch-btn--wide {
+  width: 100%;
+}
+
+.watch-btn--option {
+  min-height: 38px;
+  font-size: 13px;
+}
+
+.watch-prompt {
+  font-size: 17px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.watch-ready__name {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.watch-ready__yards {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.watch-ready__time {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.watch-screen--center .watch-btn {
+  margin-top: var(--space-3);
+}
+
+.watch-paused__set {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.watch-kicker--state {
+  font-size: 13px;
+}
+
+.watch-proposal__from {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.watch-proposal__arrow {
+  font-size: 18px;
+  line-height: 1;
+  color: var(--color-text-subtle);
+}
+
+.watch-proposal__to {
+  font-size: 34px;
+  line-height: 1.05;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.watch-proposal__keep {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.watch-proposal__note {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.watch-safety__title {
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.watch-complete__yards {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.watch-complete__time {
+  font-size: 22px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.watch-complete__adjust {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.watch-toast {
+  position: absolute;
+  top: 34px;
+  left: 18px;
+  right: 18px;
+  padding: 4px var(--space-2);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-success-text);
+  background: var(--color-success-tint);
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- Phase 5: situation card (pool, equipment, readiness) ---------- */
+
+.context-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.context-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.context-card__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.context-card__row dt {
+  flex: none;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.context-card__row dd {
+  min-width: 0;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.qa-proposal__note {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Phase 5: Add Workout ---------- */
+
+.text-input,
+.textarea {
+  width: 100%;
+  padding: 0 var(--space-3);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+}
+
+.text-input {
+  min-height: var(--tap-target);
+}
+
+.textarea {
+  min-height: 160px;
+  padding: var(--space-3);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 15px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.text-input[aria-invalid='true'],
+.textarea[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+.builder-set {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.builder-set__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.builder-set__title {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+}
+
+.builder-set__notation {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.builder-set__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.builder-add {
+  margin-top: var(--space-3);
+}
+
+.parse-failures {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.parse-failures__text {
+  display: block;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.parse-failures__why {
+  display: block;
+  font-size: 14px;
+}
+
+/* ---------- Phase 5: Demo menu (quiet, in the toolbar) ---------- */
+
+.app-toolbar {
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* On narrow screens the panel hangs from the whole toolbar (not from the Demo button), so it
+   can never run off the left edge of the screen. From 600px up the toolbar is centered and the
+   panel hangs from the button again. */
+.app-toolbar {
+  position: relative;
+}
+
+.demo-menu {
+  position: static;
+}
+
+@media (min-width: 600px) {
+  .demo-menu {
+    position: relative;
+  }
+}
+
+.demo-menu__toggle {
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+}
+
+.demo-menu__toggle:hover,
+.demo-menu__toggle[aria-expanded='true'] {
+  color: var(--color-text);
+  background: var(--color-neutral-soft);
+}
+
+.demo-menu__panel {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  right: var(--space-3);
+  z-index: 40;
+  width: 270px;
+  max-width: calc(100vw - 24px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-phone);
+}
+
+@media (min-width: 600px) {
+  .demo-menu__panel {
+    right: 0;
+  }
+}
+
+.demo-menu__item {
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-input);
+}
+
+.demo-menu__item:hover:not(:disabled) {
+  background: var(--color-neutral-soft);
+}
+
+.demo-menu__item:disabled {
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+}
+
+.demo-menu__item--danger {
+  color: var(--color-danger);
+}
+
+.demo-menu__hint {
+  font-weight: 500;
+}
+
+.demo-menu__confirm {
+  padding: var(--space-2) var(--space-3);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.demo-menu__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-1);
+}
+
+/* ---------- Phase 5: watch pickers and remaining-time proposal ---------- */
+
+.watch-picker__head {
+  flex: none;
+  text-align: center;
+}
+
+.watch-picker__hint {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.watch-picker__grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  align-content: center;
+  gap: 6px;
+}
+
+.watch-remaining__title {
+  font-size: 26px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.watch-remaining__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pool__equipment {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+.qa-proposal__after--time {
+  font-size: 22px;
+}
+.complete-card__note--follow {
+  margin-top: var(--space-2);
+  padding-top: 0;
+  border-top: 0;
+}

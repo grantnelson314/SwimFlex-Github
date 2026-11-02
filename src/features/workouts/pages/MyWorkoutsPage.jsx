@@ -1,0 +1,78 @@
+import Button from '../../../components/buttons/Button.jsx'
+import ScreenHeader from '../../../components/layout/ScreenHeader.jsx'
+import { PlusIcon } from '../../../components/status/Icons.jsx'
+import { selectWorkout } from '../../../state/actions.js'
+import { useAppDispatch, useAppState } from '../../../state/AppContext.jsx'
+import { isUnfinished } from '../../session/sessionReducer.js'
+import WorkoutCard from '../components/WorkoutCard.jsx'
+
+export default function MyWorkoutsPage() {
+  const { workouts, selectedWorkoutId, activeSession } = useAppState()
+  const dispatch = useAppDispatch()
+
+  // Adapt Workout enters the documented flow at Review Workout (confirm Priority Set first).
+  const adaptTarget =
+    workouts.find((w) => w.id === selectedWorkoutId) ?? workouts[0] ?? null
+
+  return (
+    <div className="screen">
+      <div className="phone__scroll">
+        <ScreenHeader title="My Workouts" />
+
+        {isUnfinished(activeSession) && (
+          <section className="resume-banner" aria-label="Workout in progress">
+            <div>
+              <p className="resume-banner__title">Workout in progress</p>
+              <p className="resume-banner__body">{activeSession.workout.name}</p>
+            </div>
+            <Button variant="primary" to="/session">
+              Resume
+            </Button>
+          </section>
+        )}
+
+        <div className="stack stack--actions">
+          {adaptTarget ? (
+            <Button
+              variant="primary"
+              block
+              to={`/workouts/${adaptTarget.id}`}
+              onClick={() => dispatch(selectWorkout(adaptTarget.id))}
+            >
+              Adapt Workout
+            </Button>
+          ) : (
+            <Button variant="primary" block disabled>
+              Adapt Workout
+            </Button>
+          )}
+          <Button variant="secondary" block to="/add-workout" icon={<PlusIcon />}>
+            Add Workout
+          </Button>
+        </div>
+
+        <section className="workout-list-section" aria-labelledby="saved-workouts-heading">
+          <h2 id="saved-workouts-heading" className="section-title">
+            Saved workouts
+          </h2>
+
+          {workouts.length === 0 ? (
+            <p className="empty-state">
+              No workouts yet. Add a workout you already swim to get started.
+            </p>
+          ) : (
+            <ul className="stack">
+              {workouts.map((workout) => (
+                <WorkoutCard
+                  key={workout.id}
+                  workout={workout}
+                  onOpen={(id) => dispatch(selectWorkout(id))}
+                />
+              ))}
+            </ul>
+          )}
+        </section>
+      </div>
+    </div>
+  )
+}
