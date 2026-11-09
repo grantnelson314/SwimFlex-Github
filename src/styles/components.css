@@ -1931,3 +1931,184 @@
   padding-top: 0;
   border-top: 0;
 }
+/* =====================================================================
+   M4 feedback refinement: clarity, branding, comparison, pool hierarchy
+   ===================================================================== */
+
+/* ---------- SwimFlex identity ---------- */
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.brand-mark__icon {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  color: var(--color-primary);
+}
+
+.brand-mark__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-mark__icon path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.brand-mark__icon .brand-mark__wave--soft {
+  opacity: 0.62;
+}
+
+.brand-mark__copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand-mark__copy strong {
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.brand-mark__copy span {
+  margin-top: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Explicit original vs adjusted set comparison ---------- */
+
+.set-compare {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.set-compare__row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--color-neutral-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+}
+
+.set-compare__row--adjusted {
+  background: var(--color-primary-tint);
+  border-color: rgba(23, 105, 224, 0.35);
+}
+
+.set-compare__label {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+}
+
+.set-compare__row--adjusted .set-compare__label {
+  color: var(--color-primary-dark);
+}
+
+.set-compare__notation {
+  min-width: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.set-compare__yards {
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 360px) {
+  .set-compare__row {
+    grid-template-columns: 68px minmax(0, 1fr);
+  }
+
+  .set-compare__yards {
+    grid-column: 2;
+  }
+}
+
+/* ---------- Pool-mode hierarchy ---------- */
+
+.pool__title {
+  font-size: 46px;
+}
+
+.pool__countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: var(--space-3);
+}
+
+.pool__countdown-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+.pool__countdown-time {
+  font-size: 36px;
+  line-height: 1.05;
+}
+
+.pool__rep {
+  margin-top: var(--space-2);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 17px;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-tint);
+}
+
+.pool__label {
+  margin-top: 1px;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  color: var(--color-text-secondary);
+}
+
+.watch-pool__countdown-label {
+  margin-top: 2px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+}
+
+.watch-pool__rep {
+  margin-top: 2px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  color: var(--color-primary-dark);
+  background: var(--color-primary-tint);
+}
+
+.watch-kicker {
+  margin-top: 1px;
+  font-size: 10px;
+  color: var(--color-text-secondary);
+}

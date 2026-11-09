@@ -9,6 +9,7 @@ import QuickAdjustPage from '../features/session/pages/QuickAdjustPage.jsx'
 import SessionSafetyPage from '../features/session/pages/SessionSafetyPage.jsx'
 import WorkoutCompletePage from '../features/session/pages/WorkoutCompletePage.jsx'
 import AddWorkoutPage from '../features/workouts/pages/AddWorkoutPage.jsx'
+import ChooseWorkoutPage from '../features/workouts/pages/ChooseWorkoutPage.jsx'
 import MyWorkoutsPage from '../features/workouts/pages/MyWorkoutsPage.jsx'
 import ReviewWorkoutPage from '../features/workouts/pages/ReviewWorkoutPage.jsx'
 
@@ -22,6 +23,7 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<MyWorkoutsPage />} />
+      <Route path="/choose-workout" element={<ChooseWorkoutPage />} />
       <Route path="/workouts/:workoutId" element={<ReviewWorkoutPage />} />
       <Route path="/adapt/:workoutId" element={<AdaptWorkoutPage />} />
       <Route path="/adapt/:workoutId/proposed" element={<ProposedChangesPage />} />

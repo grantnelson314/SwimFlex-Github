@@ -7,10 +7,9 @@ import {
   getRoleLabel,
 } from '../../workouts/workoutUtils.js'
 
-/** One set on Proposed Changes: status, what it was, what it becomes, and why. */
+/** One set on Proposed Changes with an explicit original-vs-adjusted comparison. */
 export default function SetChangeCard({ change }) {
   const { originalSet, adjustedSet, changeType, explanation } = change
-  const changed = !['preserved', 'unchanged'].includes(changeType)
   const wasYards = calculateSetYards(originalSet)
   const nowYards = calculateSetYards(adjustedSet)
 
@@ -22,22 +21,19 @@ export default function SetChangeCard({ change }) {
           <StatusBadge status={changeType} />
         </div>
 
-        {changed && (
-          <p className="change-card__was">
-            <span className="visually-hidden">Was: </span>
-            <s>{formatSetNotation(originalSet)}</s>
-          </p>
-        )}
-        <p className="set-card__notation">
-          {changed && <span className="visually-hidden">Now: </span>}
-          {formatSetNotation(adjustedSet)}
-        </p>
+        <div className="set-compare" aria-label={`${getRoleLabel(originalSet.role)} original and adjusted comparison`}>
+          <div className="set-compare__row">
+            <p className="set-compare__label">Original</p>
+            <p className="set-compare__notation">{formatSetNotation(originalSet)}</p>
+            <p className="set-compare__yards">{formatYards(wasYards)}</p>
+          </div>
+          <div className="set-compare__row set-compare__row--adjusted">
+            <p className="set-compare__label">Adjusted</p>
+            <p className="set-compare__notation">{formatSetNotation(adjustedSet)}</p>
+            <p className="set-compare__yards">{formatYards(nowYards)}</p>
+          </div>
+        </div>
 
-        <p className="change-card__yards">
-          {changed && wasYards !== nowYards
-            ? `${formatYards(wasYards)} → ${formatYards(nowYards)}`
-            : formatYards(nowYards)}
-        </p>
         <p className="change-card__why">{explanation}</p>
       </Card>
     </li>

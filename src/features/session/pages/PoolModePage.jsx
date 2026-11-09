@@ -54,13 +54,6 @@ export default function PoolModePage() {
         <p className="pool__workout">{session.workout.name}</p>
 
         <section className="pool__current" aria-label="Current set">
-          <p className="pool__label">{label}</p>
-          {showReps && (
-            // Re-keyed on every advance so the send-off pulse replays.
-            <p className="pool__rep pool__pulse" key={session.advanceCount}>
-              {repText}
-            </p>
-          )}
           <h1 className="pool__title">{formatPoolSetTitle(set)}</h1>
           {timed && <p className="pool__interval">@ {formatInterval(set.intervalSeconds)}</p>}
           {set.equipment?.length > 0 && (
@@ -79,6 +72,14 @@ export default function PoolModePage() {
               No interval. Tap Set done when you finish.
             </p>
           )}
+
+          {showReps && (
+            // Re-keyed on every advance so the send-off pulse replays.
+            <p className="pool__rep pool__pulse" key={session.advanceCount}>
+              {repText}
+            </p>
+          )}
+          <p className="pool__label">{label}</p>
 
           <div
             className="pool__progress"

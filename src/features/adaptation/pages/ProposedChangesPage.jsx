@@ -72,7 +72,7 @@ export default function ProposedChangesPage() {
 
           <section aria-labelledby="sets-changes-heading" className="review-sets">
             <h2 id="sets-changes-heading" className="section-title">
-              Set by set
+              Original vs adjusted, set by set
             </h2>
             <ul className="stack">
               {rec.changes.map((change) => (

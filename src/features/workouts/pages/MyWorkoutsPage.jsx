@@ -1,4 +1,5 @@
 import Button from '../../../components/buttons/Button.jsx'
+import BrandMark from '../../../components/layout/BrandMark.jsx'
 import ScreenHeader from '../../../components/layout/ScreenHeader.jsx'
 import { PlusIcon } from '../../../components/status/Icons.jsx'
 import { selectWorkout } from '../../../state/actions.js'
@@ -7,17 +8,17 @@ import { isUnfinished } from '../../session/sessionReducer.js'
 import WorkoutCard from '../components/WorkoutCard.jsx'
 
 export default function MyWorkoutsPage() {
-  const { workouts, selectedWorkoutId, activeSession } = useAppState()
+  const { workouts, activeSession } = useAppState()
   const dispatch = useAppDispatch()
-
-  // Adapt Workout enters the documented flow at Review Workout (confirm Priority Set first).
-  const adaptTarget =
-    workouts.find((w) => w.id === selectedWorkoutId) ?? workouts[0] ?? null
 
   return (
     <div className="screen">
       <div className="phone__scroll">
-        <ScreenHeader title="My Workouts" />
+        <BrandMark />
+        <ScreenHeader
+          title="My Workouts"
+          subtitle="Choose a structured workout, then adapt it to fit today's conditions."
+        />
 
         {isUnfinished(activeSession) && (
           <section className="resume-banner" aria-label="Workout in progress">
@@ -32,13 +33,8 @@ export default function MyWorkoutsPage() {
         )}
 
         <div className="stack stack--actions">
-          {adaptTarget ? (
-            <Button
-              variant="primary"
-              block
-              to={`/workouts/${adaptTarget.id}`}
-              onClick={() => dispatch(selectWorkout(adaptTarget.id))}
-            >
+          {workouts.length > 0 ? (
+            <Button variant="primary" block to="/choose-workout">
               Adapt Workout
             </Button>
           ) : (
